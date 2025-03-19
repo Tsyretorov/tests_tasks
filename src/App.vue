@@ -57,9 +57,9 @@ export default {
       const tg = window.Telegram.WebApp;
       if (tg.initDataUnsafe.user) {
         this.user = {
-          firstName: tg.initDataUnsafe.user.firstName || "Не указано",
-          lastName: tg.initDataUnsafe.user.lastName || "Не указано",
-          username: tg.initDataUnsafe.user.username || "Не указано",
+          firstName: tg.initDataUnsafe.user.first_name || "Не указано",
+          lastName: tg.initDataUnsafe.user.last_name || "Не указано",
+          username: tg.initDataUnsafe.user.user_name || "Не указано",
         };
       } else {
         this.step = 1;
@@ -91,9 +91,9 @@ export default {
         const formattedDate = new Date(this.selectedDate).toISOString().split('T')[0];
         const userData = {
           telegram_id: tg.initDataUnsafe.user.id,
-          firstName: tg.initDataUnsafe.user.firstName || "Не указано",
-          lastName: tg.initDataUnsafe.user.lastName || "Не указано",
-          username: tg.initDataUnsafe.user.username || "Не указано",
+          firstName: tg.initDataUnsafe.user.first_name || "Не указано",
+          lastName: tg.initDataUnsafe.user.last_name || "Не указано",
+          username: tg.initDataUnsafe.user.user_name || "Не указано",
           birth_date: formattedDate,
         };
         console.log("DATE", userData)
@@ -110,9 +110,9 @@ export default {
         console.log(formattedDate)
         const userData = {
           telegram_id: 123,
-          firstName: "без телеграмма Не указано",
-          lastName: "без телеграмма Не указано",
-          username: "без телеграмма Не указано",
+          firstName: "без теграмма Не указано",
+          lastName: "без теграмма Не указано",
+          username: "без теграмма Не указано",
           birth_date: formattedDate,
         };
         console.log("DATE", userData)
@@ -134,11 +134,13 @@ export default {
         try {
           const response = await axios.get(`/api/user/${username}/birthday`);
           this.user = {
-            firstName: response.data.firstName,
-            lastName: response.data.lastName,
+            firstName: response.data.first_name,
+            lastName: response.data.last_name,
             username: response.data.username,
+            days_until_birthday: response.data.days_until_birthday
+            hours_until_birthday: response.data.hours_until_birthday
+            minutes_until_birthday: response.data.minutes_until_birthday
           };
-          this.selectedDate = response.data.birth_date;
         } catch (error) {
           console.error("Ошибка при получении данных:", error);
         }
