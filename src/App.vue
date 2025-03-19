@@ -14,8 +14,8 @@
     <div v-if="step === 4">
       <h1>Данные пользователя</h1>
       <p>Дата: {{ selectedDate }}</p>
-      <p>Имя: {{ user.firstName }}</p>
-      <p>Фамилия: {{ user.lastName }}</p>
+      <p>Имя: {{ user.first_name }}</p>
+      <p>Фамилия: {{ user.last_name }}</p>
       <p>Username: {{ user.username }}</p>
     </div>
 
@@ -57,8 +57,8 @@ export default {
       const tg = window.Telegram.WebApp;
       if (tg.initDataUnsafe.user) {
         this.user = {
-          firstName: tg.initDataUnsafe.user.first_name || "Не указано",
-          lastName: tg.initDataUnsafe.user.last_name || "Не указано",
+          first_name: tg.initDataUnsafe.user.first_name || "Не указано",
+          last_name: tg.initDataUnsafe.user.last_name || "Не указано",
           username: tg.initDataUnsafe.user.username || "Не указано",
         };
       } else {
@@ -72,8 +72,8 @@ export default {
       try {
         const response = await axios.get(`/api/user/${username}/birthday`);
         this.user = {
-          firstName: response.data.firstName,
-          lastName: response.data.lastName,
+          first_name: response.data.first_name,
+          last_name: response.data.last_name,
           username: response.data.username,
         };
         this.selectedDate = response.data.birth_date;
@@ -91,8 +91,8 @@ export default {
         const formattedDate = new Date(this.selectedDate).toISOString().split('T')[0];
         const userData = {
           telegram_id: tg.initDataUnsafe.user.id,
-          firstName: tg.initDataUnsafe.user.first_name || "Не указано",
-          lastName: tg.initDataUnsafe.user.last_name || "Не указано",
+          first_name: tg.initDataUnsafe.user.first_name || "Не указано",
+          last_name: tg.initDataUnsafe.user.last_name || "Не указано",
           username: tg.initDataUnsafe.user.username || "Не указано",
           birth_date: formattedDate,
         };
@@ -110,8 +110,8 @@ export default {
         console.log(formattedDate)
         const userData = {
           telegram_id: 123,
-          firstName: "без теграмма Не указано",
-          lastName: "без теграмма Не указано",
+          first_name: "без теграмма Не указано",
+          last_name: "без теграмма Не указано",
           username: "без теграмма Не указано",
           birth_date: formattedDate,
         };
@@ -135,8 +135,8 @@ export default {
           const response = await axios.get(`/api/user/${username}/birthday`);
           console.log(response)
           this.user = {
-            firstName: response.data.first_name,
-            lastName: response.data.last_name,
+            first_name: response.data.first_name,
+            last_name: response.data.last_name,
             username: response.data.username
           };
           this.selectedDate = {
