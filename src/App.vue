@@ -57,8 +57,8 @@ export default {
       const tg = window.Telegram.WebApp;
       if (tg.initDataUnsafe.user) {
         this.user = {
-          firstName: tg.initDataUnsafe.user.first_name || "Не указано",
-          lastName: tg.initDataUnsafe.user.last_name || "Не указано",
+          firstName: tg.initDataUnsafe.user.firstName || "Не указано",
+          lastName: tg.initDataUnsafe.user.lastName || "Не указано",
           username: tg.initDataUnsafe.user.username || "Не указано",
         };
       } else {
@@ -72,8 +72,8 @@ export default {
       try {
         const response = await axios.get(`/api/user/${username}/birthday`);
         this.user = {
-          firstName: response.data.first_name,
-          lastName: response.data.last_name,
+          firstName: response.data.firstName,
+          lastName: response.data.lastName,
           username: response.data.username,
         };
         this.selectedDate = response.data.birth_date;
@@ -91,8 +91,8 @@ export default {
         const formattedDate = new Date(this.selectedDate).toISOString().split('T')[0];
         const userData = {
           telegram_id: tg.initDataUnsafe.user.id,
-          first_name: tg.initDataUnsafe.user.first_name || "Не указано",
-          last_name: tg.initDataUnsafe.user.last_name || "Не указано",
+          firstName: tg.initDataUnsafe.user.firstName || "Не указано",
+          lastName: tg.initDataUnsafe.user.lastName || "Не указано",
           username: tg.initDataUnsafe.user.username || "Не указано",
           birth_date: formattedDate,
         };
@@ -110,8 +110,8 @@ export default {
         console.log(formattedDate)
         const userData = {
           telegram_id: 123,
-          first_name: "без телеграмма Не указано",
-          last_name: "без телеграмма Не указано",
+          firstName: "без телеграмма Не указано",
+          lastName: "без телеграмма Не указано",
           username: "без телеграмма Не указано",
           birth_date: formattedDate,
         };
@@ -134,8 +134,8 @@ export default {
         try {
           const response = await axios.get(`/api/user/${username}/birthday`);
           this.user = {
-            firstName: response.data.first_name,
-            lastName: response.data.last_name,
+            firstName: response.data.firstName,
+            lastName: response.data.lastName,
             username: response.data.username,
           };
           this.selectedDate = response.data.birth_date;

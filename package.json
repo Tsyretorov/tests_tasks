@@ -2,7 +2,7 @@
   "name": "tg_bot_test_task",
   "version": "0.0.0",
   "private": true,
-  "proxy": "https://9de1-2402-800-621f-4723-96a1-eef7-b799-7b45.ngrok-free.app",
+  "proxy": "https://ed23-1-55-50-28.ngrok-free.app",
   "type": "module",
   "scripts": {
     "dev": "vite",
