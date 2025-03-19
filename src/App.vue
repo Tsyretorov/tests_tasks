@@ -71,6 +71,7 @@ export default {
     async fetchSharedUserData(username) {
       try {
         const response = await axios.get(`/api/user/${username}/birthday`);
+        console.log(response)
         this.user = {
           first_name: response.data.first_name,
           last_name: response.data.last_name,

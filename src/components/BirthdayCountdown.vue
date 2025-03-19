@@ -2,8 +2,8 @@
   <div>
     <h1>Ваши данные</h1>
     <p>Дата: {{ selectedDate }}</p>
-    <p>Имя: {{ user.firstName }}</p>
-    <p>Фамилия: {{ user.lastName }}</p>
+    <p>Имя: {{ user.first_name }}</p>
+    <p>Фамилия: {{ user.last_name }}</p>
     <p>Username: {{ user.username }}</p>
     <button @click="onShare">Поделиться</button>
   </div>
