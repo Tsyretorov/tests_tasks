@@ -59,7 +59,7 @@ export default {
         this.user = {
           firstName: tg.initDataUnsafe.user.first_name || "Не указано",
           lastName: tg.initDataUnsafe.user.last_name || "Не указано",
-          username: tg.initDataUnsafe.user.user_name || "Не указано",
+          username: tg.initDataUnsafe.user.username || "Не указано",
         };
       } else {
         this.step = 1;
@@ -93,7 +93,7 @@ export default {
           telegram_id: tg.initDataUnsafe.user.id,
           firstName: tg.initDataUnsafe.user.first_name || "Не указано",
           lastName: tg.initDataUnsafe.user.last_name || "Не указано",
-          username: tg.initDataUnsafe.user.user_name || "Не указано",
+          username: tg.initDataUnsafe.user.username || "Не указано",
           birth_date: formattedDate,
         };
         console.log("DATE", userData)
