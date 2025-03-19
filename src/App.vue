@@ -136,11 +136,13 @@ export default {
           this.user = {
             firstName: response.data.first_name,
             lastName: response.data.last_name,
-            username: response.data.username,
-            days_until_birthday: response.data.days_until_birthday
-            hours_until_birthday: response.data.hours_until_birthday
-            minutes_until_birthday: response.data.minutes_until_birthday
+            username: response.data.username
           };
+          this.selectedDate = {
+            days_until_birthday: response.data.days_until_birthday,
+            hours_until_birthday: response.data.hours_until_birthday,
+            minutes_until_birthday: response.data.minutes_until_birthday,
+          }
         } catch (error) {
           console.error("Ошибка при получении данных:", error);
         }
