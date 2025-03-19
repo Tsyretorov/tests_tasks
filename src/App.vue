@@ -59,7 +59,7 @@ export default {
         this.user = {
           first_name: tg.initDataUnsafe.user.first_name || "Не указано",
           last_name: tg.initDataUnsafe.user.last_name || "Не указано",
-          username: tg.initDataUnsafe.user.username || "Не указано",
+          username: tg.initDataUnsafe.user.username || "not write",
         };
       } else {
         this.step = 1;
@@ -94,7 +94,7 @@ export default {
           telegram_id: tg.initDataUnsafe.user.id,
           first_name: tg.initDataUnsafe.user.first_name || "Не указано",
           last_name: tg.initDataUnsafe.user.last_name || "Не указано",
-          username: tg.initDataUnsafe.user.username || "Не указано",
+          username: tg.initDataUnsafe.user.username || "not write",
           birth_date: formattedDate,
         };
         console.log("DATE", userData)
@@ -134,17 +134,17 @@ export default {
         const username = tg.initDataUnsafe.user.username;
         try {
           const response = await axios.get(`/api/user/${username}/birthday`);
-          console.log(response)
+          console.log("Response from server:", response.data);
           this.user = {
             first_name: response.data.first_name,
             last_name: response.data.last_name,
-            username: response.data.username
+            username: response.data.username,
           };
           this.selectedDate = {
             days_until_birthday: response.data.days_until_birthday,
             hours_until_birthday: response.data.hours_until_birthday,
             minutes_until_birthday: response.data.minutes_until_birthday,
-          }
+          };
         } catch (error) {
           console.error("Ошибка при получении данных:", error);
         }
