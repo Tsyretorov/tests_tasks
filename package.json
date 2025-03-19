@@ -2,7 +2,7 @@
   "name": "tg_bot_test_task",
   "version": "0.0.0",
   "private": true,
-  "proxy": "https://ed23-1-55-50-28.ngrok-free.app",
+  "proxy": "https://tests-tasks-backend.onrender.com",
   "type": "module",
   "scripts": {
     "dev": "vite",

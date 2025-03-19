@@ -52,6 +52,7 @@ export default {
     if (urlParams.has("username")) {
       const username = urlParams.get("username");
       this.fetchSharedUserData(username);
+      this.fetchUserData(username);
       this.step = 4;
     } else {
       const tg = window.Telegram.WebApp;
@@ -71,13 +72,17 @@ export default {
     async fetchSharedUserData(username) {
       try {
         const response = await axios.get(`/api/user/${username}/birthday`);
-        console.log(response)
+        console.log("Response from server:", response.data);
         this.user = {
           first_name: response.data.first_name,
           last_name: response.data.last_name,
           username: response.data.username,
         };
-        this.selectedDate = response.data.birth_date;
+        this.selectedDate = {
+          days_until_birthday: response.data.days_until_birthday,
+          hours_until_birthday: response.data.hours_until_birthday,
+          minutes_until_birthday: response.data.minutes_until_birthday,
+        };
       } catch (error) {
         console.error("Ошибка при получении данных:", error);
       }
