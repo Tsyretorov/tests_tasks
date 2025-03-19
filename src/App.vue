@@ -133,6 +133,7 @@ export default {
         const username = tg.initDataUnsafe.user.username;
         try {
           const response = await axios.get(`/api/user/${username}/birthday`);
+          console.log(response)
           this.user = {
             firstName: response.data.first_name,
             lastName: response.data.last_name,
