@@ -41,11 +41,12 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 cd tg_bot_frontend
 npm install
 ```
-2. Настройка переменных окружения
-в файле vite.config.ts на 13 строке поставьте свой url для работы с backend
-(это нужно для обхождения curs)
-такеж в package.json на 5 стркое укажите свой url хоть и можно без него -_-
-на этом все доп информация будет в README.md в tg_bot_frontend
+2. Настройка переменных окружения.
+
+   в файле vite.config.ts на 13 строке поставьте свой url для работы с backend
+   (это нужно для обхождения curs)
+   также в package.json на 5 стркое, укажите свой url хоть и можно без него -_-
+   на этом все доп информация будет в README.md в tg_bot_frontend
 
 
 
